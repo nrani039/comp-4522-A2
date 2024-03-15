@@ -97,6 +97,11 @@ highEarning_employee(Name) :-
   Amount>40000,
   department(Name, research).
 
+%Query 3.
+supreme_chief(Name) :-
+    employee(Name),
+    \+ supervise(_, Name).
+
 
 
 
