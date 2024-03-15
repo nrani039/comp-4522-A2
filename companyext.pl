@@ -85,12 +85,17 @@ isFemale(X):-
 % Queries
 % Write your queries here.
 
-% Query1.
-?- works_on(X, computerization, 10), works_on(X, Project, 10), female(X), supervise(jennifer, Y).
+%Query1. 
+eligible_female_employee(Name) :-
+    female(Name),
+    works_on(Name, computerization, 10),
+    supervise(jennifer, Name).
 
-% Query2.
-
-?- salary(X,Y), Y>40000), department(X, research).
+%Query2.
+highEarning_employee(Name) :-
+  salary(Name, Amount),
+  Amount>40000,
+  department(Name, research).
 
 
 
