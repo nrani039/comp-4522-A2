@@ -77,9 +77,23 @@ subordinate(X,Y) :- superior(Y,X).
 
 % Should you need to write new rules, please enter them here.
 
+isFemale(X):-
+    female(X).
+
+
 %-------------------------------------------------------------
 % Queries
-% Write your queries here .
+% Write your queries here.
+
+% Query1.
+?- works_on(X, computerization, 10), works_on(X, Project, 10), female(X), supervise(jennifer, Y).
+
+% Query2.
+
+?- salary(X,Y), Y>40000), department(X, research).
+
+
+
 
 
 
