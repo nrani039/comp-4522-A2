@@ -80,20 +80,33 @@ subordinate(X,Y) :- superior(Y,X).
 isFemale(X):-
     female(X).
 
+projectxEffortTwenty(X,Y,Z):-
+    works_on(X,Y,Z).
+
 
 %-------------------------------------------------------------
 % Queries
 % Write your queries here.
 
-% Query1.
-?- works_on(X, computerization, 10), works_on(X, Project, 10), female(X), supervise(jennifer, Y).
+%Query1.
+eligible_female_employee(Name) :-
+    female(Name),
+    works_on(Name, computerization, 10),
+    supervise(jennifer, Name).
 
-% Query2.
+%Query2.
+highEarning_employee(Name) :-
+  salary(Name, Amount),
+  Amount>40000,
+  department(Name, research).
 
-?- salary(X,Y), Y>40000), department(X, research).
+%Query 3.
+supreme_chief(Name) :-
+    employee(Name),
+    \+ supervise(_, Name).
 
-
-
-
-
+%Query 4.
+employee_productx_effortTwenty(Name) :-
+    works_on(Name, productx, Effort),
+    Effort >= 20.
 
